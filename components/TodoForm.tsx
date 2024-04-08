@@ -1,19 +1,25 @@
-import type { FC } from 'react'
-import { StyleSheet, TextInput } from 'react-native'
-import { Text, View } from '@/components/Themed'
-import { Button, CardSection } from './common'
+import type { FC } from "react"
+import { StyleSheet, TextInput } from "react-native"
+import { Text, View } from "@/components/Themed"
+import { Button, CardSection } from "./common"
 
 interface Props {
   onChangeText: (value: string) => void
-  handleAddTodo: () => void
+  handleOnPress: () => void
   value: string
+  label?: string
 }
 
-const TodoForm: FC<Props> = ({ onChangeText, handleAddTodo, value }): JSX.Element => {
+const TodoForm: FC<Props> = ({
+  onChangeText,
+  handleOnPress,
+  value,
+  label = "What Todo?",
+}): JSX.Element => {
   return (
     <CardSection>
       <View style={styles.containerStyle}>
-        <Text style={styles.labelStyle}>What Todo?</Text>
+        <Text style={styles.labelStyle}>{label}</Text>
         <View style={styles.inputContainerStyle}>
           <TextInput
             placeholder="Buy Banana"
@@ -22,7 +28,7 @@ const TodoForm: FC<Props> = ({ onChangeText, handleAddTodo, value }): JSX.Elemen
             value={value}
             onChangeText={onChangeText}
           />
-          <Button onPress={handleAddTodo}>Add</Button>
+          <Button onPress={handleOnPress}>Add</Button>
         </View>
       </View>
     </CardSection>
@@ -32,28 +38,28 @@ const TodoForm: FC<Props> = ({ onChangeText, handleAddTodo, value }): JSX.Elemen
 const styles = StyleSheet.create({
   containerStyle: {
     height: 80,
-    flex: 1
+    flex: 1,
   },
   inputContainerStyle: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     height: 40,
-    flex: 1
+    flex: 1,
   },
   inputStyle: {
-    color: '#000',
+    color: "#000",
     paddingLeft: 5,
     fontSize: 16,
     height: 40,
     flex: 1,
     borderWidth: 1,
     borderRadius: 3,
-    borderColor: '#ddd'
+    borderColor: "#ddd",
   },
   labelStyle: {
     fontSize: 16,
-    flex: 1
+    flex: 1,
   }
 })
 

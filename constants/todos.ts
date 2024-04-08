@@ -4,8 +4,10 @@ export interface TodoProp {
   todo: string
 }
 
-export const todos: TodoProp[] = [{
-  id: 1,
-  isCompleted: false,
-  todo: 'Buy groceries'
-}]
+export const todos: TodoProp[] = [
+  {
+    id: 1,
+    isCompleted: false,
+    todo: "Buy groceries",
+  },
+]

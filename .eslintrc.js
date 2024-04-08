@@ -6,28 +6,37 @@ module.exports = {
   },
   extends: [
     "eslint:recommended",
+    "prettier",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
   ],
-  overrides: [{
-    files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
-    extends: 'love'
-  }],
+  overrides: [
+    {
+      files: ["*.js", "*.jsx", "*.ts", "*.tsx"],
+      extends: "love",
+    },
+  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
-    project: true
+    project: true,
   },
-  plugins: ["react", "react-hooks", "@typescript-eslint"],
+  plugins: [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "prettier",
+  ],
   rules: {
     indent: ["error", 4, { SwitchCase: 1 }],
     "linebreak-style": ["error", "unix"],
     quotes: ["error", "double", { avoidEscape: true }],
     semi: ["error", "always"],
+    "prettier/prettier": "error",
     "no-empty-function": "off",
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/no-var-requires": "off",
@@ -43,4 +52,4 @@ module.exports = {
       version: "detect",
     },
   },
-};
+}

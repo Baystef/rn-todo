@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { render, screen } from "@testing-library/react-native";
+import * as React from "react"
+import { render, screen } from "@testing-library/react-native"
 
-import TodoForm from '../TodoForm';
+import TodoForm from "../TodoForm"
 
 it(`renders Input Label`, () => {
-  render(<TodoForm />);
+  render(<TodoForm />)
 
-  expect(screen.getByText('What Todo?')).toBeTruthy();
-  expect(screen.getByText('Add')).toBeTruthy();
-});
+  expect(screen.getByText("What Todo?")).toBeTruthy()
+  expect(screen.getByText("Add")).toBeTruthy()
+})

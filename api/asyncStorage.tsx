@@ -2,12 +2,12 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import { type TodoProp } from '@/constants/todos'
+import AsyncStorage from "@react-native-async-storage/async-storage"
+import { type TodoProp } from "@/constants/todos"
 
-const ITEMS = Symbol('ITEMS').toString()
+const ITEMS = Symbol("ITEMS").toString()
 
-export async function getItems (): Promise<TodoProp[]> {
+export async function getItems(): Promise<TodoProp[]> {
   try {
     const value = await AsyncStorage.getItem(ITEMS)
     if (value !== null) {
@@ -17,12 +17,12 @@ export async function getItems (): Promise<TodoProp[]> {
     }
   } catch (e) {
     // error reading value
-    console.error('Error loading items', e)
+    console.error("Error loading items", e)
     return []
   }
 }
 
-export async function addItem (item: TodoProp): Promise<null | undefined> {
+export async function addItem(item: TodoProp): Promise<null | undefined> {
   try {
     let items = await getItems()
     if (!items) {
@@ -33,12 +33,15 @@ export async function addItem (item: TodoProp): Promise<null | undefined> {
     // return item
   } catch (e) {
     // error reading value
-    console.error('Error adding item to storage', e)
+    console.error("Error adding item to storage", e)
     return null
   }
 }
 
-export async function editItem (id: number, updatedTodo: TodoProp): Promise<null | undefined> {
+export async function editItem(
+  id: number,
+  updatedTodo: TodoProp,
+): Promise<null | undefined> {
   try {
     const items = await getItems()
 
@@ -46,15 +49,17 @@ export async function editItem (id: number, updatedTodo: TodoProp): Promise<null
       return // No items to edit
     }
 
-    const updatedItems = items.map((item) => (item.id === id ? updatedTodo : item))
+    const updatedItems = items.map((item) =>
+      item.id === id ? updatedTodo : item,
+    )
 
     await AsyncStorage.setItem(ITEMS, JSON.stringify(updatedItems))
   } catch (e) {
-    console.error('Error editing item in storage', e)
+    console.error("Error editing item in storage", e)
   }
 }
 
-export async function deleteItem (id: number): Promise<null | undefined> {
+export async function deleteItem(id: number): Promise<null | undefined> {
   try {
     const items = await getItems()
 
@@ -66,6 +71,6 @@ export async function deleteItem (id: number): Promise<null | undefined> {
 
     await AsyncStorage.setItem(ITEMS, JSON.stringify(filteredItems))
   } catch (e) {
-    console.error('Error deleting item in storage', e)
+    console.error("Error deleting item in storage", e)
   }
 }

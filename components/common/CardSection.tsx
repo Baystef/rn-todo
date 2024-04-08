@@ -1,6 +1,6 @@
-import type { FC } from 'react'
-import { StyleSheet } from 'react-native'
-import { View } from '@/components/Themed'
+import type { FC } from "react"
+import { StyleSheet } from "react-native"
+import { View } from "@/components/Themed"
 
 interface Props {
   children?: React.ReactNode
@@ -14,11 +14,11 @@ const CardSection: FC<Props> = ({ children, style }) => {
 const styles = StyleSheet.create({
   containerStyle: {
     padding: 5,
-    backgroundColor: '#fff',
-    justifyContent: 'flex-start',
-    flexDirection: 'row',
-    position: 'relative'
-  }
+    backgroundColor: "#fff",
+    justifyContent: "flex-start",
+    flexDirection: "row",
+    position: "relative",
+  },
 })
 
 export { CardSection }

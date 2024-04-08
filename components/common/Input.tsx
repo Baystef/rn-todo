@@ -1,6 +1,6 @@
-import { type FC } from 'react'
-import { TextInput, StyleSheet } from 'react-native'
-import { Text, View } from '@/components/Themed'
+import { type FC } from "react"
+import { TextInput, StyleSheet } from "react-native"
+import { Text, View } from "@/components/Themed"
 
 interface Props {
   label: string
@@ -17,7 +17,7 @@ const Input: FC<Props> = ({
   onChangeText,
   placeholder,
   secureTextEntry,
-  multiline = false
+  multiline = false,
 }) => {
   const { inputStyle, labelStyle, containerStyle } = styles
 
@@ -42,21 +42,21 @@ const Input: FC<Props> = ({
 const styles = StyleSheet.create({
   containerStyle: {
     height: 80,
-    flex: 1
+    flex: 1,
   },
   inputStyle: {
-    color: '#000',
+    color: "#000",
     paddingLeft: 5,
     fontSize: 16,
     height: 40,
     flex: 1,
     borderWidth: 1,
     borderRadius: 3,
-    borderColor: '#ddd'
+    borderColor: "#ddd",
   },
   labelStyle: {
     fontSize: 16,
-    flex: 1
+    flex: 1,
   }
 })
 
