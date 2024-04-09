@@ -9,5 +9,4 @@ A simple todo app built with react-native
 4. To open the app on the Web, go to `http://localhost:8081`
 
 ## Functionality
-1. You can add, delete and check a todo as completed and it is persisted in storage
-2. Edit functionality not implemented as at time of writing this
+1. You can add, edit delete and check a todo as completed and it is persisted in storage
